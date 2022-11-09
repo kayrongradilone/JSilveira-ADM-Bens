@@ -1,14 +1,14 @@
-import { Button } from "react-bootstrap";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Button } from '@mui/material';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 export const AppRoutes = () => {
   return (
     <Routes>
       <Route
-        path="/pagina-inicial"
-        element={<Button variant="primary">pagina inicial</Button>}
+        path='/pagina-inicial'
+        element={<Button variant='contained' color='secondary'>Teste</Button>}
       />
-      <Route path="*" element={<Navigate to="/pagina-inicial" />} />
+      <Route path='*' element={<Navigate to='/pagina-inicial' />} />
     </Routes>
   );
 };
