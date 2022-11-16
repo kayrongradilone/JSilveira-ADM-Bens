@@ -1,11 +1,12 @@
-import { LayoutBaseDePagina } from "../../shared/layouts"
-
-
+import { LayoutBaseDePagina } from "../../shared/layouts";
 
 export const Dashboard = () => {
-    return(
-       <LayoutBaseDePagina titulo='Pagina Inicial'>
-        Testando
-       </LayoutBaseDePagina>
-    )
-}
+  return (
+    <LayoutBaseDePagina
+      titulo="Página Inicial"
+      barraDeFerramentas={<>Barra de Ferramentas</>}
+    >
+      Testando
+    </LayoutBaseDePagina>
+  );
+};
