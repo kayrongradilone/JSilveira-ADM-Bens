@@ -6,7 +6,7 @@ export const Dashboard = () => {
     <LayoutBaseDePagina
       titulo="Página Inicial"
       
-      barraDeFerramentas={<FerramentasDeDetalhes mostrarBotaoSalvarEFechar />}
+      barraDeFerramentas={<FerramentasDeDetalhes mostrarBotaoSalvarEFechar  />}
     >
       Testando
     </LayoutBaseDePagina>
