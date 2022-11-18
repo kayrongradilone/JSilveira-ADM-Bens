@@ -96,4 +96,10 @@ const deleteById = async (id: number): Promise<void | Error> => {
         return new Error((error as {message: string}).message || "Erro  ao atualizar registro");
       }
 };
-export const PessoasService = {};
+export const PessoasService = {
+  getAll,
+  create,
+  getById,
+  updateById,
+  deleteById,
+};

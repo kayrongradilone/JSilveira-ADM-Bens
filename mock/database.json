@@ -2,8 +2,9 @@
     "pessoas":[
         {
             "id": 1,
-            "nome": "Kayron",
-            "sobrenome": "Gradilone"
+            "email": "kayrongradilone@hotmail.com",
+            "cidadeId": "Floripa",
+            "nomeCompleto": "Kayron Gradilone"
         }
     ]
 }
