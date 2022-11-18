@@ -2,16 +2,21 @@ import { Box } from "@mui/material";
 import { FerramentasDaListagem } from "../../shared/components";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 import { useSearchParams } from "react-router-dom";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
-export const ListagemDeCidades: React.FC = () => {
+export const ListagemDePessoas: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const busca = useMemo(() => {
       return  searchParams.get('busca') || ''
     },[searchParams]);
+
+    useEffect(() => {
+
+    },[])
+
   return (
     <LayoutBaseDePagina
-      titulo="Listagem de Cidades"
+      titulo="Listagem de Pessoas"
       barraDeFerramentas={
         <FerramentasDaListagem
           textoBotaoNovo="Nova"
@@ -21,7 +26,7 @@ export const ListagemDeCidades: React.FC = () => {
         />
       }
     >
-      <Box> Lista de Cidades</Box>
+      <Box> Lista de Pessoas</Box>
     </LayoutBaseDePagina>
   );
 };
