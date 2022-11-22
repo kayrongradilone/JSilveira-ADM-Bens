@@ -4,7 +4,7 @@ import { Dashboard, ListagemDePessoas } from "../pages";
 import { useDrawerContext } from "../shared/contexts";
 
 export const AppRoutes = () => {
-  const {  setDrawerOptions } = useDrawerContext();
+  const { setDrawerOptions } = useDrawerContext();
 
   useEffect(() => {
     setDrawerOptions([
@@ -22,22 +22,10 @@ export const AppRoutes = () => {
   }, []);
   return (
     <Routes>
-      <Route
-        path="/pagina-inicial"
-        element={
-          <Dashboard/>
-        }
-      />
-      <Route
-        path="/pessoas"
-        element={
-          <ListagemDePessoas/>
-        }
-      />
-      <Route
-        path="*"
-        element={<Navigate to="/pagina-inicial" />}
-      />
+      <Route path="/pagina-inicial" element={<Dashboard />} />
+      <Route path="/pessoas" element={<ListagemDePessoas />} />
+      <Route path="/pessoas/detalhe/:id" element={<p>detalhe</p>} />
+      <Route path="*" element={<Navigate to="/pagina-inicial" />} />
     </Routes>
   );
 };

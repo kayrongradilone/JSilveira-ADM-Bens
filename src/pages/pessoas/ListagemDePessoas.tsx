@@ -1,64 +1,90 @@
+import { useEffect, useMemo, useState } from "react";
 import {
-  Box,
+  LinearProgress,
+  Pagination,
+  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
+  TableFooter,
   TableHead,
   TableRow,
-  Paper,
-  TableFooter,
-  LinearProgress,
+  IconButton,
+  Icon,
 } from "@mui/material";
-import { FerramentasDaListagem } from "../../shared/components";
-import { LayoutBaseDePagina } from "../../shared/layouts";
-import { useSearchParams } from "react-router-dom";
-import { useEffect, useMemo, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+
 import {
   IListagemPessoa,
   PessoasService,
 } from "../../shared/services/api/pessoas/PessoasService";
+import { FerramentasDaListagem } from "../../shared/components";
+import { LayoutBaseDePagina } from "../../shared/layouts";
 import { useDebounce } from "../../shared/hooks";
 import { Environment } from "../../shared/environment";
 
 export const ListagemDePessoas: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { debounce } = useDebounce();
+  const navigate = useNavigate();
 
   const [rows, setRows] = useState<IListagemPessoa[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [totalCount, setTotalCount] = useState(0);
-  const [isLoading, setIsloading] = useState(true);
 
   const busca = useMemo(() => {
     return searchParams.get("busca") || "";
   }, [searchParams]);
 
+  const pagina = useMemo(() => {
+    return Number(searchParams.get("pagina") || "1");
+  }, [searchParams]);
+
   useEffect(() => {
-    setIsloading(true);
+    setIsLoading(true);
+
     debounce(() => {
-      PessoasService.getAll(1, busca).then((result) => {
-        setIsloading(false);
+      PessoasService.getAll(pagina, busca).then((result) => {
+        setIsLoading(false);
+
         if (result instanceof Error) {
           alert(result.message);
         } else {
           console.log(result);
+
           setTotalCount(result.totalCount);
           setRows(result.data);
         }
       });
     });
-  }, [busca]);
+  }, [busca, pagina]);
+
+  const handleDelete = (id: number) => {
+    if (window.confirm("Deseja realmente apagar?")) {
+      PessoasService.deleteById(id).then((result) => {
+        if (result instanceof Error) {
+          alert(result.message);
+        } else {
+          setRows((oldRows) => {
+            return [...oldRows.filter((oldRow) => oldRow.id !== id)];
+          });
+          alert("Registro apagado com sucesso!");
+        }
+      });
+    }
+  };
 
   return (
     <LayoutBaseDePagina
-      titulo="Listagem de Pessoas"
+      titulo="Listagem de pessoas"
       barraDeFerramentas={
         <FerramentasDaListagem
-          textoBotaoNovo="Nova"
           mostrarInputBusca
           textoDaBusca={busca}
+          textoBotaoNovo="Nova"
           aoMudarTextoDeBusca={(texto) =>
-            setSearchParams({ busca: texto }, { replace: true })
+            setSearchParams({ busca: texto, pagina: "1" }, { replace: true })
           }
         />
       }
@@ -71,31 +97,56 @@ export const ListagemDePessoas: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Ações</TableCell>
-              <TableCell>Nome Completo</TableCell>
+              <TableCell>Nome completo</TableCell>
               <TableCell>Email</TableCell>
+              <TableCell>Ações</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-
             {rows.map((row) => (
               <TableRow key={row.id}>
-                <TableCell>Ações</TableCell>
-                <TableCell>{row.nomeCompleto}</TableCell>
-                <TableCell>{row.email}</TableCell>
+                <TableCell sx={{ p: 1.4 }}>{row.nomeCompleto}</TableCell>
+                <TableCell sx={{ p: 1.4 }}>{row.email}</TableCell>
+                <TableCell sx={{ p: 1.4 }}>
+                  <IconButton size="small" onClick={() => handleDelete(row.id)}>
+                    <Icon>delete</Icon>
+                  </IconButton>
+                  <IconButton
+                    size="small"
+                    onClick={() => navigate(`/pessoas/detalhe/${row.id}`)}
+                  >
+                    <Icon>edit</Icon>
+                  </IconButton>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
+
           {totalCount === 0 && !isLoading && (
             <caption>{Environment.LISTAGEM_VAZIA}</caption>
           )}
+
           <TableFooter>
-                {isLoading && (
-            <TableRow>
-              <TableCell colSpan={3}>
-              <LinearProgress variant="indeterminate" />
-              </TableCell>
-            </TableRow>
+            {isLoading && (
+              <TableRow>
+                <TableCell colSpan={3}>
+                  <LinearProgress variant="indeterminate" />
+                </TableCell>
+              </TableRow>
+            )}
+            {totalCount > Environment.LIMITE_DE_LINHAS && (
+              <TableRow>
+                <TableCell colSpan={3}>
+                  <Pagination
+                    shape="rounded"
+                    page={pagina}
+                    count={Math.ceil(totalCount / Environment.LIMITE_DE_LINHAS)}
+                    onChange={(_, newPage) =>
+                      setSearchParams({ busca, pagina: newPage.toString() })
+                    }
+                  />
+                </TableCell>
+              </TableRow>
             )}
           </TableFooter>
         </Table>
