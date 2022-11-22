@@ -64,7 +64,7 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhesProps> = ({
       height={theme.spacing(7)}
       component={Paper}
     >
-      {mostrarBotaoSalvarCarregando && <Skeleton width={110} height={60} />}
+      {mostrarBotaoSalvarCarregando && <Skeleton width={110} height={60}/>}
       {mostrarBotaoSalvar && !mostrarBotaoSalvarCarregando && (
         <Button
           variant="contained"
