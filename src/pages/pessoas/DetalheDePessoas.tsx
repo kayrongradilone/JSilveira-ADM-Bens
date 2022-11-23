@@ -18,9 +18,9 @@ export const DetalheDePessoas: React.FC = () => {
 
             aoClicarEmSalvar={() => {}}
             aoClicarEmApagar={() => {}}
-            aoClicarEmNovo={() => {}}
+            aoClicarEmNovo={() => navigate('/pessoas/detalhe/nova')}
             aoClicarEmVoltar={() => navigate('/pessoas')}
-            aoClicarEmSalvarEFechar={() => navigate('/pessoas/detalhe/nova')}
+            aoClicarEmSalvarEFechar={() => {}}
             />
         }
         >
