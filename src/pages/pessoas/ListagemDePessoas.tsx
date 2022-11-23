@@ -83,6 +83,7 @@ export const ListagemDePessoas: React.FC = () => {
           mostrarInputBusca
           textoDaBusca={busca}
           textoBotaoNovo="Nova"
+          aoClicarEmNovo={() => navigate('/pessoas/detalhe/nova')}
           aoMudarTextoDeBusca={(texto) =>
             setSearchParams({ busca: texto, pagina: "1" }, { replace: true })
           }
@@ -97,9 +98,9 @@ export const ListagemDePessoas: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Nome completo</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Ações</TableCell>
+              <TableCell>NOME COMPLETO</TableCell>
+              <TableCell>EMAIL</TableCell>
+              <TableCell>AÇÕES</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

@@ -53,12 +53,6 @@
       "email": "jose@hotmail.com",
       "cidadeId": 12,
       "nomeCompleto": "Maria"
-    },
-    {
-      "id": 13,
-      "email": "eugenio@hotmail.com",
-      "cidadeId": 13,
-      "nomeCompleto": "Gino"
     }
   ]
 }
