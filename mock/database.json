@@ -2,7 +2,7 @@
   "pessoas": [
     {
       "id": 3,
-      "nomeCompleto": "Jose Silveira Junio",
+      "nomeCompleto": "Jose Silveira ",
       "email": "jose@hotmail.com",
       "cidadeId": "1"
     },
@@ -20,9 +20,9 @@
     },
     {
       "id": 6,
+      "nomeCompleto": "Kayron Gradilone",
       "email": "kayrongradilone@hotmail.com",
-      "cidadeId": 6,
-      "nomeCompleto": "Kayron Gradilone"
+      "cidadeId": 6
     },
     {
       "id": 7,
@@ -32,9 +32,9 @@
     },
     {
       "id": 8,
+      "nomeCompleto": "Pedro Barcelos",
       "email": "jose@hotmail.com",
-      "cidadeId": 8,
-      "nomeCompleto": "Pedro"
+      "cidadeId": 8
     },
     {
       "id": 10,
