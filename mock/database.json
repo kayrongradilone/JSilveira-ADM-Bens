@@ -72,5 +72,11 @@
       "email": "j@gmail.com",
       "cidadeId": "1"
     }
+  ],
+  "cidades": [
+    {
+      "nome": "Santos",
+      "id": 1
+    }
   ]
 }
