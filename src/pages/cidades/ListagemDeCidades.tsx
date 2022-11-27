@@ -83,7 +83,7 @@ export const ListagemDeCidades: React.FC = () => {
           mostrarInputBusca
           textoDaBusca={busca}
           textoBotaoNovo="Nova"
-          aoClicarEmNovo={() => navigate('/cidades/detalhe/nova')}
+          aoClicarEmNovo={() => navigate("/cidades/detalhe/nova")}
           aoMudarTextoDeBusca={(texto) =>
             setSearchParams({ busca: texto, pagina: "1" }, { replace: true })
           }
@@ -98,8 +98,8 @@ export const ListagemDeCidades: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell >NOME</TableCell>
-              
+              <TableCell>NOME</TableCell>
+
               <TableCell width={100}>AÇÕES</TableCell>
             </TableRow>
           </TableHead>
