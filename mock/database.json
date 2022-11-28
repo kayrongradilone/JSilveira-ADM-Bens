@@ -19,12 +19,6 @@
       "cidadeId": 1
     },
     {
-      "id": 6,
-      "nomeCompleto": "Kayron Gradilone",
-      "email": "kayrongradilone@hotmail.com",
-      "cidadeId": 6
-    },
-    {
       "id": 7,
       "nomeCompleto": "Ricardo Xeon",
       "email": "cesilveira1@hotmail.com",
@@ -73,16 +67,16 @@
       "cidadeId": 1
     },
     {
-      "nomeCompleto": "Kayrin",
-      "email": "kay@gmail.com",
-      "cidadeId": 1,
-      "id": 17
-    },
-    {
       "id": 18,
       "nomeCompleto": "Gabriel Gomes",
       "email": "gomes@gmail.com",
       "cidadeId": 1
+    },
+    {
+      "nomeCompleto": "Carol Jahn",
+      "email": "carolinejahn@gmail.com",
+      "cidadeId": 2,
+      "id": 19
     }
   ],
   "cidades": [
