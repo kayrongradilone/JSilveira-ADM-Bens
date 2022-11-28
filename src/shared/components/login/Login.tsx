@@ -7,7 +7,6 @@ import {
   CircularProgress,
   TextField,
   Typography,
-  Paper,
 } from "@mui/material";
 import { useState } from "react";
 import { useAuthContext } from "../../contexts";
@@ -60,9 +59,12 @@ export const Login: React.FC<ILoginProps> = ({ children }) => {
       justifyContent="center"
       gap={2}
     >
-  
+          <img src="https://i.imgur.com/ga4l3Nt.png?1" alt="logo" width="900" 
+     height="900"></img>
+
       <Card>
         <CardContent>
+          
           <Box display="flex" flexDirection="column" gap={2} width={350}>
             <Typography variant="h6" align="center">JSilveira Administradora de Imóveis</Typography>
             <TextField
