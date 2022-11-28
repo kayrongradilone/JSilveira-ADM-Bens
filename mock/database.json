@@ -106,5 +106,8 @@
       "id": 5,
       "nome": "Bombinhas - SC"
     }
-  ]
+  ],
+  "auth": {
+    "accessToken": "aaaaaaaaaaaaa.bbbbbbbbbbbbbbb.ccccccccc"
+  }
 }

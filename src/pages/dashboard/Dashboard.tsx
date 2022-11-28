@@ -40,7 +40,7 @@ export const Dashboard = () => {
   }, []);
   return (
     <LayoutBaseDePagina
-      titulo="Página Inicial"
+      titulo="JSilveira Administradora de Imóveis"
       barraDeFerramentas={<FerramentasDaListagem mostrarBotaoNovo={false} />}
     >
       <Box width="100%" display="flex">
