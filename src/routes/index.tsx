@@ -25,6 +25,11 @@ export const AppRoutes = () => {
         path: "/pessoas",
         icon: "people",
       },
+      {
+        label: "Inquilinos",
+        path: "/inquilinos",
+        icon: "money",
+      },
     ]);
   }, []);
   return (
