@@ -7,10 +7,14 @@ import {
   CircularProgress,
   TextField,
   Typography,
+  useMediaQuery,
+  useTheme
 } from "@mui/material";
 import { useState } from "react";
 import { useAuthContext } from "../../contexts";
 import * as yup from "yup";
+import { Container } from "@mui/system";
+
 
 const loginSchema = yup.object().shape({
   email: yup.string().email().required(),
@@ -27,6 +31,8 @@ export const Login: React.FC<ILoginProps> = ({ children }) => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const theme = useTheme();
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'))
 
   const handleSubmit = () => {
     setIsLoading(true);
@@ -52,20 +58,24 @@ export const Login: React.FC<ILoginProps> = ({ children }) => {
   if (isAuthenticated) return <>{children}</>;
   return (
     <Box
-      width="100vw"
-      height="100vh"
+      width="auto"
+      height="auto"
       display="flex"
       alignItems="center"
       justifyContent="center"
       gap={2}
-    >
-          <img src="https://i.imgur.com/ga4l3Nt.png?1" alt="logo" width="900" 
-     height="900"></img>
+     
+    > 
+    
+          
+          
 
       <Card>
+      
         <CardContent>
           
           <Box display="flex" flexDirection="column" gap={2} width={350}>
+          <img src="https://i.imgur.com/ga4l3Nt.png?1" alt="logo" width="auto" height="auto"></img>
             <Typography variant="h6" align="center">JSilveira Administradora de Imóveis</Typography>
             <TextField
               fullWidth
