@@ -62,7 +62,7 @@ const create = async (
   dados: Omit<IDetalheCidade, "id">
 ): Promise<number | Error> => {
   try {
-    const { data } = await Api.post<IDetalheCidade>(`/cidades`, dados);
+    const { data } = await Api.post<IDetalheCidade>(`https://json-server-eosin.vercel.app/cidades`, dados);
 
     if (data) {
       return data.id;
@@ -80,7 +80,7 @@ const updateById = async (
   dados: IDetalheCidade
 ): Promise<void | Error> => {
   try {
-    await Api.put(`/cidades/${id}`, dados);
+    await Api.put(`https://json-server-eosin.vercel.app/cidades/${id}`, dados);
   } catch (error) {
     console.error(error);
     return new Error(
@@ -90,7 +90,7 @@ const updateById = async (
 };
 const deleteById = async (id: number): Promise<void | Error> => {
   try {
-    await Api.delete(`/cidades/${id}`);
+    await Api.delete(`https://json-server-eosin.vercel.app/cidades/${id}`);
   } catch (error) {
     console.error(error);
     return new Error(
