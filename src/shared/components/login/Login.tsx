@@ -66,10 +66,6 @@ export const Login: React.FC<ILoginProps> = ({ children }) => {
       gap={2}
      
     > 
-    
-          
-          
-
       <Card>
       
         <CardContent>
