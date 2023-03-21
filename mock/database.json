@@ -79,6 +79,17 @@
       "id": 19
     }
   ],
+    "inquilinos": [
+      {
+        "id": 3,
+        "nomeInquilino": "Jose Silveira ",
+        "email": "jose@hotmail.com",
+        "cidadeId": 4,
+        "sala": "101",
+        "imovel": "Centro Executivo Silveira l"
+      }
+    
+  ],
   "cidades": [
     {
       "id": 1,
