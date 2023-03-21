@@ -14,5 +14,5 @@ export const Environment = {
   /**
    * Url base de consultas da aplicacão
    */
-  URL_BASE: "http://localhost:3333",
+  URL_BASE: "https://j-silveira-adm-imoveis.vercel.app",
 };
