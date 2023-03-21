@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { Dashboard, DetalheDePessoas, ListagemDePessoas } from "../pages";
 import { DetalheDeCidades } from "../pages/cidades/DetalheDeCidades";
 import { ListagemDeCidades } from "../pages/cidades/ListagemDeCidades";
+import { ListagemDeInquilinos } from "../pages/inquilinos/ListagemInquilinos";
 import { useDrawerContext } from "../shared/contexts";
 
 export const AppRoutes = () => {
@@ -39,8 +40,7 @@ export const AppRoutes = () => {
       <Route path="/pessoas/detalhe/:id" element={<DetalheDePessoas/>} />
       <Route path="/cidades" element={<ListagemDeCidades />} />
       <Route path="/cidades/detalhe/:id" element={<DetalheDeCidades/>} />
-      <Route path="/inquilinos" element={<ListagemDeCidades />} />
-      <Route path="/inquilinos/detalhe/:id" element={<DetalheDeCidades/>} />
+      <Route path="/inquilinos" element={<ListagemDeInquilinos />} />
       <Route path="*" element={<Navigate to="/pagina-inicial" />} />
     </Routes>
   );
