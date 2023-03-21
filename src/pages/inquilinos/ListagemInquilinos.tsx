@@ -92,14 +92,13 @@ export const ListagemDeInquilinos: React.FC = () => {
       <TableContainer
         component={Paper}
         variant="outlined"
-        sx={{ m: 1, width: "auto" }}
+        sx={{ m: 1, width: "center" }}
       >
         <Table>
           <TableHead>
             <TableRow>
               <TableCell>SALA</TableCell>
-              <TableCell>NOME INQUILINO</TableCell>
-              <TableCell>CIDADE</TableCell>
+              <TableCell>NOME</TableCell>
               <TableCell>IMÓVEL</TableCell>
               <TableCell>EMAIL</TableCell>
               <TableCell width={100}>AÇÕES</TableCell>
@@ -108,12 +107,11 @@ export const ListagemDeInquilinos: React.FC = () => {
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.id}>
-                <TableCell sx={{ p: 1.4 }}>{row.sala}</TableCell>
-                <TableCell sx={{ p: 1.4 }}>{row.nomeInquilino}</TableCell>
-                <TableCell sx={{ p: 1.4 }}>{row.cidadeId}</TableCell>
-                <TableCell sx={{ p: 1.4 }}>{row.imovel}</TableCell>
-                <TableCell sx={{ p: 1.4 }}>{row.email}</TableCell>
-                <TableCell sx={{ p: 1.4 }}>
+                <TableCell sx={{ p: 1.4, mr: 1  }}>{row.sala}</TableCell>
+                <TableCell sx={{ p: 1.4, mr: 1  }}>{row.nomeInquilino}</TableCell>
+                <TableCell sx={{ p: 1.4, mr: 1  }}>{row.imovel}</TableCell>
+                <TableCell sx={{ p: 1.4, mr: 1  }}>{row.email}</TableCell>
+                <TableCell sx={{ p: 1.4, mr: 1 }}>
                   <IconButton size="small" onClick={() => handleDelete(row.id)}>
                     <Icon>delete</Icon>
                   </IconButton>

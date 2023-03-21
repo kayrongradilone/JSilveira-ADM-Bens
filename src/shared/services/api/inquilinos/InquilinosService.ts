@@ -27,7 +27,7 @@ const getAll = async (
   filter = ""
 ): Promise<TInquilinosComTotalCount | Error> => {
   try {
-    const urlRelativa = `/inquilinos?_page=${page}&_limit=${Environment.LIMITE_DE_LINHAS}&nomeInquilino_like=${filter}`;
+    const urlRelativa = `/inquilinos?_page=?_page=${page}&_limit=${Environment.LIMITE_DE_LINHAS}&nomeInquilino_like=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 

@@ -14,5 +14,5 @@ export const Environment = {
   /**
    * Url base de consultas da aplicacão
    */
-  URL_BASE: "https://json-server-eosin.vercel.app",
+  URL_BASE: "http://localhost:3333",
 };
