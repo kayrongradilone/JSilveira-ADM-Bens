@@ -8,9 +8,9 @@
     },
     {
       "id": 4,
+      "nomeCompleto": "Eugenio Guerino Gradilone",
       "email": "eugenio@hotmail.com",
-      "cidadeId": 4,
-      "nomeCompleto": "Eugenio Guerino"
+      "cidadeId": 4
     },
     {
       "id": 7,
