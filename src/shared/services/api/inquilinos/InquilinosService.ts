@@ -27,7 +27,7 @@ const getAll = async (
   filter = ""
 ): Promise<TInquilinosComTotalCount | Error> => {
   try {
-    const urlRelativa = `/inquilinos?_page=?_page=${page}&_limit=${Environment.LIMITE_DE_LINHAS}&nomeInquilino_like=${filter}`;
+    const urlRelativa = `${Environment.URL_BASE}/inquilinos?_page=${page}&_limit=${Environment.LIMITE_DE_LINHAS}&nomeInquilino_like=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -50,7 +50,7 @@ const getAll = async (
 };
 const getById = async (id: number): Promise<IDetalheInquilinos | Error> => {
   try {
-    const { data } = await Api.get(`https://json-server-eosin.vercel.app/inquilinos/${id}`);
+    const { data } = await Api.get(`${Environment.URL_BASE}/inquilinos/${id}`);
 
     if (data) {
       return data;
@@ -67,7 +67,7 @@ const create = async (
   dados: Omit<IDetalheInquilinos, "id">
 ): Promise<number | Error> => {
   try {
-    const { data } = await Api.post<IDetalheInquilinos>(`https://json-server-eosin.vercel.app/Inquilinos`, dados);
+    const { data } = await Api.post<IDetalheInquilinos>(`${Environment.URL_BASE}/Inquilinos`, dados);
 
     if (data) {
       return data.id;
@@ -85,7 +85,7 @@ const updateById = async (
   dados: IDetalheInquilinos
 ): Promise<void | Error> => {
   try {
-    await Api.put(`https://json-server-eosin.vercel.app/inquilinos${id}`, dados);
+    await Api.put(`${Environment.URL_BASE}/inquilinos${id}`, dados);
   } catch (error) {
     console.error(error);
     return new Error(
@@ -95,7 +95,7 @@ const updateById = async (
 };
 const deleteById = async (id: number): Promise<void | Error> => {
   try {
-    await Api.delete(`https://json-server-eosin.vercel.app/inquilinos${id}`);
+    await Api.delete(`${Environment.URL_BASE}/inquilinos${id}`);
   } catch (error) {
     console.error(error);
     return new Error(

@@ -22,7 +22,7 @@ const getAll = async (
   filter = ""
 ): Promise<TCidadesComTotalCount | Error> => {
   try {
-    const urlRelativa = `/cidades?_page=${page}&_limit=${Environment.LIMITE_DE_LINHAS}&nome_like=${filter}`;
+    const urlRelativa = `${Environment.URL_BASE}/cidades?_page=${page}&_limit=${Environment.LIMITE_DE_LINHAS}&nome_like=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -45,7 +45,7 @@ const getAll = async (
 };
 const getById = async (id: number): Promise<IDetalheCidade | Error> => {
   try {
-    const { data } = await Api.get(`/cidades/${id}`);
+    const { data } = await Api.get(`${Environment.URL_BASE}/cidades/${id}`);
 
     if (data) {
       return data;
@@ -62,7 +62,7 @@ const create = async (
   dados: Omit<IDetalheCidade, "id">
 ): Promise<number | Error> => {
   try {
-    const { data } = await Api.post<IDetalheCidade>(`/cidades`, dados);
+    const { data } = await Api.post<IDetalheCidade>(`${Environment.URL_BASE}/cidades`, dados);
 
     if (data) {
       return data.id;
@@ -80,7 +80,7 @@ const updateById = async (
   dados: IDetalheCidade
 ): Promise<void | Error> => {
   try {
-    await Api.put(`/cidades/${id}`, dados);
+    await Api.put(`${Environment.URL_BASE}/cidades/${id}`, dados);
   } catch (error) {
     console.error(error);
     return new Error(
@@ -90,7 +90,7 @@ const updateById = async (
 };
 const deleteById = async (id: number): Promise<void | Error> => {
   try {
-    await Api.delete(`/cidades/${id}`);
+    await Api.delete(`${Environment.URL_BASE}/cidades/${id}`);
   } catch (error) {
     console.error(error);
     return new Error(
