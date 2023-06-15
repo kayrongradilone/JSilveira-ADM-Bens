@@ -25,7 +25,7 @@ export const Dashboard = () => {
       if (result instanceof Error) {
         alert(result.message);
       } else {
-        console.log(result);
+        
 
         setTotalCountCidades(result.totalCount);
       }
@@ -36,7 +36,7 @@ export const Dashboard = () => {
       if (result instanceof Error) {
         alert(result.message);
       } else {
-        console.log(result);
+        
 
         setTotalCountPessoas(result.totalCount);
       }
@@ -47,7 +47,7 @@ export const Dashboard = () => {
       if (result instanceof Error) {
         alert(result.message);
       } else {
-        console.log(result);
+        
 
         setTotalCountInquilinos(result.totalCount);
       }
@@ -62,7 +62,7 @@ export const Dashboard = () => {
         <Grid container margin={2}>
           <Grid item container spacing={2}>
             
-            <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
+            {/*<Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
               <Card>
                 <CardContent>
                   <Typography variant="h5" align="center">
@@ -83,7 +83,7 @@ export const Dashboard = () => {
                   </Box>
                 </CardContent>
               </Card>
-            </Grid>
+                    </Grid>*/}
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
               <Card>
                 <CardContent>

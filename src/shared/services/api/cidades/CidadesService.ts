@@ -25,7 +25,7 @@ const getAll = async (
     const urlRelativa = `${Environment.URL_BASE}/cidades?_page=${page}&_limit=${Environment.LIMITE_DE_LINHAS}&nome_like=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
-
+    console.log(data.nome);
     if (data) {
       return {
         data,

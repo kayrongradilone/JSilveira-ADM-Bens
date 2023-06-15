@@ -47,7 +47,7 @@ export const ListagemDeInquilinos: React.FC = () => {
     debounce(() => {
       InquilinosService.getAll(pagina, busca).then((result) => {
         setIsLoading(false);
-
+        
         if (result instanceof Error) {
           alert(result.message);
         } else {
@@ -74,6 +74,7 @@ export const ListagemDeInquilinos: React.FC = () => {
       });
     }
   };
+
   return (
     <LayoutBaseDePagina
       titulo="Listagem de inquilinos"
@@ -101,6 +102,7 @@ export const ListagemDeInquilinos: React.FC = () => {
               <TableCell>NOME</TableCell>
               <TableCell>IMÓVEL</TableCell>
               <TableCell>EMAIL</TableCell>
+              <TableCell>CIDADE</TableCell>
               <TableCell width={100}>AÇÕES</TableCell>
             </TableRow>
           </TableHead>
@@ -111,6 +113,7 @@ export const ListagemDeInquilinos: React.FC = () => {
                 <TableCell sx={{ p: 1.4, mr: 1  }}>{row.nomeInquilino}</TableCell>
                 <TableCell sx={{ p: 1.4, mr: 1  }}>{row.imovel}</TableCell>
                 <TableCell sx={{ p: 1.4, mr: 1  }}>{row.email}</TableCell>
+                <TableCell sx={{ p: 1.4, mr: 1  }}>{row.cidadeId}</TableCell>
                 <TableCell sx={{ p: 1.4, mr: 1 }}>
                   <IconButton size="small" onClick={() => handleDelete(row.id)}>
                     <Icon>delete</Icon>
